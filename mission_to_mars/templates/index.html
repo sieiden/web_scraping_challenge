@@ -19,10 +19,38 @@
     <div class="row" id="recent_news">
         <div class="col-md-12">
             <h2>Latest Mars News</h2>
-            <h3 class="heading">{{news.title}}</h3>
-            <h4 class="heading">{{news.subtitle}}</h4>
+            <h3 class="heading">{{ mars.news_title }}</h3>
+            <h4 class="heading">{{ mars.news_subtitle }}</h4>
         </div>
     </div>
+    <!-- Featured Image -->
+    <div class="row" id="featured_img_table">
+      <div class="col-md-8">
+        <h2>Featured Mars Image</h2>
+        <img src= "{{ mars.featured_image_url }}" alt="Mars Image">
+      </div>
+          <!-- Mars Table -->
+      <div class="col-md-4">
+        <table>{{ mars.mars_table_html|safe }}</table>
+      </div>
+    </div>
+    <!-- Hemisphere Cards -->
+    <div class="row" id="hemisphere_cards">
+      <h2 class="text-center">Mars Hemispheres</h2>      
+    </div>
+    
+    {% for i in range(4) %}
+
+    <div class="col-lg-3">
+      <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="{{mars.hemisphere_image_urls[i]['img_url']}}" alt="Hemisphere image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{ mars.hemisphere_image_urls[i]["title"] }}</h4>
+          </div>
+        </div>
+    </div>
+
+    {% endfor %}
   </div>
 </body>
 
