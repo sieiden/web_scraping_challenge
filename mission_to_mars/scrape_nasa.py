@@ -41,8 +41,8 @@ def scrape_info():
     # Extract tables
     dfs = pd.read_html(data_url)
     mars_df = dfs[1]
-    mars_df
-
+    
+    #turn df into html
     mars_table_html = mars_df.to_html()
     mars_table_html = mars_table_html.replace('\n', '')
 

@@ -29,28 +29,29 @@
         <h2>Featured Mars Image</h2>
         <img src= "{{ mars.featured_image_url }}" alt="Mars Image">
       </div>
-          <!-- Mars Table -->
+      <!-- Mars Table -->
       <div class="col-md-4">
-        <table>{{ mars.mars_table_html|safe }}</table>
+        <h3>Mars Facts</h3>
+        <table class="table table-striped">{{ mars.mars_table_html|safe }}</table>
       </div>
     </div>
-    <!-- Hemisphere Cards -->
-    <div class="row" id="hemisphere_cards">
-      <h2 class="text-center">Mars Hemispheres</h2>      
-    </div>
-    
-    {% for i in range(4) %}
+      <!-- Hemisphere Cards -->
+  <div class="row" id="hemisphere_cards">
+    <h2 class="text-center">Mars Hemispheres</h2>      
+  </div>
+  
+  {% for i in hemisphere_image_urls %}
 
-    <div class="col-lg-3">
-      <div class="card" style="width: 10rem;">
-        <img class="card-img-top" src="{{mars.hemisphere_image_urls[i]['img_url']}}" alt="Hemisphere image cap">
-          <div class="card-body">
-            <h4 class="card-title">{{ mars.hemisphere_image_urls[i]["title"] }}</h4>
-          </div>
+  <div class="col-lg-3">
+    <div class="card" style="width: 10rem;">
+      <img class="card-img-top" src="{{mars.hemisphere_image_urls[i]['img_url']}}" alt="Hemisphere image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{ mars.hemisphere_image_urls[i]["title"] }}</h4>
         </div>
-    </div>
+      </div>
+  </div>
 
-    {% endfor %}
+  {% endfor %}
   </div>
 </body>
 
