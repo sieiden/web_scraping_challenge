@@ -40,7 +40,9 @@ def scrape_info():
 
     # Extract tables
     dfs = pd.read_html(data_url)
-    mars_df = dfs[1]
+    mars_df = dfs[0]
+    mars_df = mars_df.rename(columns={0:"",1:"Mars",2:"Earth"})
+    mars_df = mars_df.set_index("")
     
     #turn df into html
     mars_table_html = mars_df.to_html()
